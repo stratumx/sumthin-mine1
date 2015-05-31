@@ -1,0 +1,180 @@
+\documentclass[%
+specialist,     % тип
+natbib,         % пакет natbib для сжатия цитирований
+subf,           % пакет subcaption для вложенной нумерации изображений
+href,           % пакет hyperref для гиперссылок
+colorlinks=true % цветные гиперссылки
+%,fixint=false  % отключить прямые знаки интегралов
+%,times         % шрифт Times как основной
+]{disser}
+
+\usepackage[
+  a4paper, mag=1000,
+  left=3cm, right=2cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm
+]{geometry}
+\usepackage[cp1251]{inputenc}
+\usepackage[tableposition=top]{caption}
+\usepackage{subcaption}
+\DeclareCaptionLabelFormat{gostfigure}{Рисунок #2}
+\DeclareCaptionLabelFormat{gosttable}{Таблица #2}
+\DeclareCaptionLabelSeparator{gost}{~---~}
+\captionsetup{labelsep=gost}
+\captionsetup[figure]{labelformat=gostfigure}
+\captionsetup[table]{labelformat=gosttable}
+\renewcommand{\thesubfigure}{\asbuk{subfigure}}
+\usepackage[english,russian]{babel}
+%\usepackage{tabularx,longtable}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\graphicspath{{fig/}}
+
+%\usepackage{titlesec}
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\ifpdf\usepackage{epstopdf}\fi
+
+% Номера страниц внизу и по центру
+\pagestyle{footcenter}
+\chapterpagestyle{footcenter}
+
+% точка с запятой в качестве разделителя между номерами цитирований
+%\setcitestyle{semicolon}
+
+% полужирное начертание для векторов
+\let\vec=\mathbf
+
+% включать подсекции в оглавление
+\setcounter{tocdepth}{2}
+
+\graphicspath{{fig/}}
+
+\makeatletter
+\renewcommand{\p@subsection}{}
+\renewcommand{\p@subsubsection}{}
+\makeatother
+
+%----------------------------------------------------------------
+\begin{document}
+
+% Переопределение заголовков
+%\def\contentsname{Содержание}
+%\def\conclusionname{Выводы}
+%\def\bibname{Литература}
+
+\def\capfigure{figure}
+\def\captable{table}
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \ifx\@captype\capfigure
+      \centering #1~--~#2 \par
+  \else
+      #1~--~#2 \par
+  \fi
+  \vskip\belowcaptionskip}
+
+%\setlength\abovecaptionskip{2\p@}
+%\setlength\belowcaptionskip{1\p@}
+
+%
+% Титульный лист на русском языке
+%
+
+% Название организации
+\institution{Университет ИТМО}
+
+% Имя лица, допускающего к защите (зав. каф.)
+\apname{к.\,т.\,н., доцент Е.\,И.~Яблочников}
+
+\title{ПОЯСНИТЕЛЬНАЯ ЗАПИСКА К ВЫПУСКНОЙ КВАЛИФИКАЦИОННОЙ РАБОТЕ}
+
+% Тема
+\topic{<<Разработка математической модели шестикоординатной системы управления для установок быстрого прототипирования>>}
+
+% ??????
+%\group{???????? ??????}
+% ?????
+%\author{??? ???????}
+
+% Научный руководитель
+\sa       {М.\,Я.~Афанасьев}
+\sastatus {к.\,т.\,н., доцент}
+
+% Рецензент
+\rev      {?.\,?.~??????}
+\revstatus{?.\,?.-?.\,?., ??????}
+
+% Город и год
+\city{Санкт-Петербург, 2015}
+
+\maketitle
+
+%%
+%% Titlepage in English
+%%
+%
+%\setlength\thirdskip{0pt}
+%
+%\institution{Name of Organization}
+%
+%% Approved by
+%\apname{Professor S.\,S.~Sidorov}
+%
+%\title{Diploma Thesis}
+%
+%% Topic
+%\topic{Dummy Title}
+%
+%% Author
+%\author{Author's Name} % Full Name
+%\group{} % Study Group
+%
+%% Scientific Advisor
+%\sa       {I.\,I.~Ivanov}
+%\sastatus {Professor}
+%
+%% Reviewer
+%\rev      {P.\,P.~Petrov}
+%\revstatus{Associate Professor}
+%
+%% City & Year
+%\city{Saint Petersburg}
+%\date{\number\year}
+%
+%\maketitle[en]
+
+% Содержание
+\tableofcontents
+
+% Введение
+\input{intro}
+
+
+% Глава 1
+\input{1}
+
+% Глава 2
+\input{2}
+
+% Глава 3
+\input{3}
+
+% Заключение
+\input{concl}
+
+% Список литературы
+\renewcommand{\bibname}{Список литературы}
+%\nocite{*}
+\bibliography{thesis}
+\bibliographystyle{gost705s}
+
+% Приложения
+
+\appendix
+\input{app1}
+\input{app2}
+\input{app3}
+
+\end{document}

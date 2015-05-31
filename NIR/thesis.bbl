@@ -1,0 +1,77 @@
+\ifx\undefined\BibEmph\def\BibEmph#1{#1}\else\fi
+\ifx\undefined\href\def\href#1#2{#2}\else\fi
+\ifx\undefined\url\def\url#1{\texttt{#1}}\else\fi
+\ifx\undefined\urlprefix\def\urlprefix{URL: }\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\urlprefix\url{#1}}\else\fi
+\ifx\undefined\BibUrlDate\long\def\BibUrlDate#1{({%
+\cyr\cyrd\cyra\cyrt\cyra\ %
+\cyro\cyrb\cyrr\cyra\cyrshch\cyre\cyrn\cyri\cyrya}: #1)}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{#1}\else\fi
+\begin{thebibliography}{1}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+
+\bibitem{addit}
+\selectlanguageifdefined{russian}
+\BibEmph{Довбыш~.~., Забеднов~.~., Зленко~.~.}
+\newblock Аддитивные технологии и изделия из металла.
+\newblock 2012.
+\newblock \BibUrl{www.ipmd.net}.
+
+\bibitem{stewart1}
+\selectlanguageifdefined{russian}
+\BibEmph{Андриевский~.~., Зегжда~.~., Казунин~.~.} Управление платформой
+  Стьюарта с шестью степенями свободы на базе пневмоприводов~// \BibEmph{XII
+  Всероссийское совещание по проблемам управления}.
+\newblock 2014. "--- 16-19 июня.
+\newblock {\cyr\CYRS.}~4.
+
+\bibitem{fdm_print}
+\selectlanguageifdefined{russian}
+\BibEmph{Одарченко~.~.} Моделирование методом послойного наплавления~//
+  \BibEmph{3D Today}.
+\newblock 2013.
+\newblock {\cyr\CYRS.}~4.
+
+\bibitem{3dprint}
+\selectlanguageifdefined{russian}
+Доступная 3D печать для науки, образования и устойчивого развития; Пер. с
+  англ.~/ {\cyr\CYRP\cyro\cyrd\ \cyrr\cyre\cyrd.\ }C.~Fonda, E.~Canessa,
+  M.~Sennaro.
+\newblock The Abdus Salam International Centre for Theoretical Physics, 2013.
+\newblock {\cyr\CYRT.}~1.
+
+\bibitem{loxodr0}
+\selectlanguageifdefined{english}
+\BibEmph{Alexander~J.} Loxodromes: A Rhumb Way to Go~// \BibEmph{Mathematics
+  Magazine}.
+\newblock 2004. "--- December.
+\newblock Vol.~77, no.~5.
+\newblock P.~349--356.
+
+\bibitem{loxodr1}
+\selectlanguageifdefined{english}
+\BibEmph{Petrovic~M.} Differential equation of a loxodrome on the spheroid~//
+  \BibEmph{NASE MORE}.
+\newblock 2007.
+\newblock P.~87--89.
+
+\bibitem{python}
+\selectlanguageifdefined{english}
+\BibEmph{Rossum~G.} An intriduction to Python~/ Ed. by F.~Drake.
+\newblock Network Theory ltd, 2003.
+
+\bibitem{stewart0}
+\selectlanguageifdefined{english}
+\BibEmph{Stewart~D.} A Platform with Six Degrees of Freedom~// \BibEmph{UK
+  Institution of Mechanical Engineers Proceedings}.
+\newblock 1965.
+\newblock Vol. 180, no.~15.
+
+\bibitem{python2}
+\selectlanguageifdefined{english}
+\BibEmph{Tosi~S.} Matplotlib for Python Developers.
+\newblock Packt Publishing, 2009.
+
+\end{thebibliography}

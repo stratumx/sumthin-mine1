@@ -1,0 +1,72 @@
+% ITMO style, somewhat hairy, but still quite good :)
+% Roman I Khimov <rik@osrc.info>
+
+\usepackage{fancyhdr}
+
+\def\prepod#1{\gdef\@prepod{#1}}
+\def\group#1{\gdef\@group{#1}}
+\def\theme#1{\gdef\@theme{#1}}
+\def\institute{Санкт-Петербургский Государственный Университет Информационных
+Технологий, Механики и Оптики}
+
+\setlength{\voffset}{-1cm}
+\setlength{\hoffset}{0cm}
+\setlength{\oddsidemargin}{1cm}
+\setlength{\evensidemargin}{1cm}
+\setlength{\textwidth}{15cm}
+\setlength{\textheight}{22.5cm}
+
+\def\maketitle{
+	\newpage
+	\let\footnotesize\small
+	\let\footnoterule\relax
+	\thispagestyle{fancy}
+	\renewcommand{\headheight}{27.2pt}
+	\fancyhf{}
+	\fancyfoot[C]{\bfseries Санкт-Петербург \number\year}
+%	\fancyfoot[C]{\bfseries\today}
+	\fancyhead[C]{\bfseries\institute}
+	\renewcommand{\headrulewidth}{0mm}
+	\renewcommand{\footrulewidth}{0mm}
+
+	\null\vfil
+
+	\begin{center}
+		\begin{Large}
+			{\bfseries {\@title} \par}
+		\end{Large}
+		\bigskip
+		\begin{LARGE}
+			{\bfseries {\@theme} \par}	% Название
+		\end{LARGE}
+	\end{center}
+
+	\vspace{3cm}
+
+	\begin{flushright}
+		\begin{tabular}{c|}
+			{\bfseries Работу выполнил:} \\
+			{\bfseries {\@author}}\\
+			\\
+			{\bfseries Группа: {\@group}}\\\\
+			\\
+			{\bfseries Преподаватель:} \\
+			{\bfseries {\@prepod}}\\
+		\end{tabular}
+	\end{flushright}
+
+	\null\vfil
+	\setcounter{page}{0}
+	\setcounter{footnote}{0}
+	\pagebreak
+}	% End of \def\maketitle
+
+\def\ps@plain{
+	\pagestyle{fancy}
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0mm}
+	\renewcommand{\footrulewidth}{0.2mm}
+	\renewcommand{\headheight}{27.2pt}
+%	\fancyhead[L]{\small\thesection.\thesubsection}
+	\fancyfoot[C]{\thepage}
+}
